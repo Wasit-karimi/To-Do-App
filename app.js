@@ -24,7 +24,7 @@ function renderTasks() {
     //create li elements and append them to the list
     const tag = document.createElement("li");
     tag.className =
-      "px-2 py-1 shadow-md my-2 rounded-md capitalize text-lg hover:bg-gradient-to-r hover:from-[#aebfb3] hover:to-[#1f2421]   hover:text-gray-950 list-item cursor-pointer relative group duration-500 transition-all";
+      "px-2 py-1 shadow-md my-2 rounded-md capitalize text-lg hover:bg-[#404243] hover:text-gray-200 list-item cursor-pointer relative group duration-200 transition-all";
     const span = document.createElement("span");
     span.textContent = task;
     tag.appendChild(span);
@@ -41,7 +41,7 @@ function renderTasks() {
     //create a button to delete a listItem
     const deleteIcon = document.createElement("i");
     deleteIcon.className =
-      "bi bi-trash absoute right-0 top-0 hover:text-gray-200 group-hover:text-gray-500 duration-200 transition-all cursor-pointer deleteIcon";
+      "bi bi-trash absoute right-0 top-0 hover:text-gray-200 group-hover:text-gray-400 duration-200 transition-all cursor-pointer deleteIcon";
 
     //append deleteIcon to container
     container.appendChild(deleteIcon);
