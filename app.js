@@ -28,7 +28,6 @@ function renderTasks() {
                      <span>${task}</span>
                      <div class='h-[70%] px-2 rounded-md shadow-md absolute right-1 top-1/2 -translate-y-1/2 flex justify-between items-center gap-1 duration-200 transition-all'>
                      <i class="bi bi-trash absoute right-0 top-0 hover:text-gray-200 group-hover:text-gray-400 duration-200 transition-all cursor-pointer deleteIcon"></i>
-                     <i class="bi bi-pencil absoute right-0 top-0 hover:text-gray-200 group-hover:text-gray-400 duration-200 transition-all cursor-pointer updateIcon"></i>
                      </div>
     `;
     list.appendChild(tag);
