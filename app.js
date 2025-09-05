@@ -1,7 +1,6 @@
 const form = document.getElementById("form");
 const input = document.getElementById("task");
 const list = document.getElementById("list");
-// const item = document.querySelectorAll(".list-item");
 const err = document.getElementById("status");
 const todayDate = document.getElementById("date");
 const todayTime = document.getElementById("time");
@@ -20,31 +19,19 @@ function renderTasks() {
   //make the container empty
   list.innerHTML = "";
 
-  tasksArray.map((task) => {
+  tasksArray.map((task, index) => {
     //create li elements and append them to the list
     const tag = document.createElement("li");
     tag.className =
-      "px-2 py-1 shadow-md my-2 rounded-md capitalize text-lg hover:bg-[#404243] hover:text-gray-200 list-item cursor-pointer relative group duration-200 transition-all";
-    const span = document.createElement("span");
-    span.textContent = task;
-    tag.appendChild(span);
+      "px-2 py-1 text-sm md:text-lg shadow-md my-2 rounded-md capitalize text-lg hover:bg-[#404243] hover:text-gray-200 list-item cursor-pointer relative group duration-200 transition-all";
+    tag.innerHTML = `<span>${index + 1} - </span>
+                     <span>${task}</span>
+                     <div class='h-[70%] px-2 rounded-md shadow-md absolute right-1 top-1/2 -translate-y-1/2 flex justify-between items-center gap-1 duration-200 transition-all'>
+                     <i class="bi bi-trash absoute right-0 top-0 hover:text-gray-200 group-hover:text-gray-400 duration-200 transition-all cursor-pointer deleteIcon"></i>
+                     <i class="bi bi-pencil absoute right-0 top-0 hover:text-gray-200 group-hover:text-gray-400 duration-200 transition-all cursor-pointer updateIcon"></i>
+                     </div>
+    `;
     list.appendChild(tag);
-
-    //creat container
-    const container = document.createElement("div");
-    container.className =
-      "h-[70%] px-2 rounded-md shadow-md right-1 top-1/2 -translate-y-1/2 absolute flex justify-between items-center duration-200 transition-all";
-
-    //append container to the li
-    tag.appendChild(container);
-
-    //create a button to delete a listItem
-    const deleteIcon = document.createElement("i");
-    deleteIcon.className =
-      "bi bi-trash absoute right-0 top-0 hover:text-gray-200 group-hover:text-gray-400 duration-200 transition-all cursor-pointer deleteIcon";
-
-    //append deleteIcon to container
-    container.appendChild(deleteIcon);
   });
 }
 
@@ -63,7 +50,7 @@ form.addEventListener("submit", (e) => {
   err.textContent = "";
 
   //stored regex condition in a variable
-  const taskPattern = /^.{10,40}$/;
+  const taskPattern = /^[A-Za-z]{10,40}$/;
 
   //get the task value from input
   const task = formData.get("task").trim();
@@ -103,7 +90,6 @@ form.addEventListener("submit", (e) => {
 
 list.addEventListener("click", (e) => {
   if (e.target.classList.contains("deleteIcon")) {
-    const li = e.target.closest("li");
     const taskText =
       e.target.parentElement.previousElementSibling.textContent.trim();
     console.log(taskText);
