@@ -49,7 +49,7 @@ form.addEventListener("submit", (e) => {
   err.textContent = "";
 
   //stored regex condition in a variable
-  const taskPattern = /^[A-Za-z ]{10,40}$/
+  const taskPattern = /^[A-Za-z ]{3,40}$/
 
   //get the task value from input
   const task = formData.get("task").trim();
