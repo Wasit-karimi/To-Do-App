@@ -58,7 +58,7 @@ form.addEventListener("submit", (e) => {
   if (!taskPattern.test(task)) {
     //if so show the error message and stop execution by returning
     err.textContent =
-      " task should should have character length between 10 and 40";
+      " task should should have character length between 3 and 40";
     return;
   }
 
